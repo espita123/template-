@@ -4,8 +4,15 @@
 </div>
 <!-- loader END -->
 <!-- Wrapper Start -->
-<div class="wrapper">
-    <div class="iq-sidebar  sidebar-default ">
+<div class="wrapper ">
+    <div 
+    [ngStyle]="{
+        'width': !openSideBar?'0':'200px',
+        'border-right': !openSideBar?'none':'1px solid gray'
+    }"
+    [class.t]="!openSideBar"
+    [class.p-2]="openSideBar"
+    class="iq-sidebar  cstm sidebar-default ">
         <div id="sidebar-scrollbar">
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
@@ -299,24 +306,40 @@
         </div>
     </div>
 
-    <div class="iq-top-navbar">
+    <div class="iq-top-navbar container-fluid fixed-top bg-white py-3">
         <div class="iq-navbar-custom">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <div class="iq-navbar-logo d-flex justify-content-between">
-                    <a href="../dashboard/index.html">
-                        <img src="../assets/images/logo.png" class="img-fluid" alt="">
-                        <span>SocialV</span>
+                    <a 
+                    class="text-dark text-decoration-none"
+                    href="../dashboard/index.html">
+                        <img
+                        style="width:50px"
+                        src="../assets/images/logo.png" class="img-fluid" alt="">
+                        <span
+                        style="font-family: Poppins, sans-serif;
+                        margin-left: 0.625rem;
+                        font-size: 1.75rem;
+                        line-height: 2.813rem;
+                        color: #3f414d;"
+                        >SocialV</span>
                     </a>
                     <div class="iq-menu-bt align-self-center">
                         <div class="wrapper-menu">
                             <div class="main-circle"><i class="ri-menu-line"></i></div>
                         </div>
                     </div>
+                    <i 
+                    (click)="openSideBar=!openSideBar"
+                    style="cursor: pointer;"
+                    class="fa-solid fa-bars my-3 mx-2"></i>
                 </div>
-                <div class="iq-search-bar device-search">
-                    <form action="#" class="searchbox">
+                <div class="iq-search-bar device-search mx-2">
+                    <form 
+                
+                    action="#" class="searchbox">
                         <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                        <input type="text" class="text search-input" placeholder="Search here...">
+                        <input type="text" class="text form-control search-input" placeholder="Search here...">
                     </form>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -585,7 +608,9 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="   d-flex align-items-center dropdown-toggle" id="drop-down-arrow"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/1.jpg" class="img-fluid rounded-circle me-3" alt="user">
+                                <img 
+                                style="width:50px"
+                                src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/1.jpg" class="img-fluid rounded-circle me-3" alt="user">
                                 <div class="caption">
                                     <h6 class="mb-0 line-height">Bni Cyst</h6>
                                 </div>
@@ -658,112 +683,136 @@
             </nav>
         </div>
     </div>
-    <div class="right-sidebar-mini right-sidebar">
-        <div class="right-sidebar-panel p-0">
-            <div class="card shadow-none">
-                <div class="card-body p-0">
-                    <div class="media-height p-3" data-scrollbar="init">
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/01.jpg" alt="">
+    <div
+    class="cstm2"
+    [ngStyle]="{'right': openRightSideBar ? '0' : '-10%'}"
+    >
+    <i 
+    style="
+    position: absolute;
+    left: -44px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 11111;
+    cursor: pointer;"
+    (click)="openRightSideBar=!openRightSideBar"
+    class="fa-solid fa-arrow-right bg-primary p-3 text-white"></i>
+        <div 
+        style="   overflow: auto;
+        height: 90vh;"
+        class="right-sidebar-mini right-sidebar ">
+     
+            <div class="right-sidebar-panel p-0 position-relative">
+           
+                <div class="card shadow-none">
+                    <div class="card-body p-0">
+                        <div class="media-height p-3" data-scrollbar="init">
+                          
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/01.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Anna Sthesia</h6>
+                                    <p class="mb-0">Just Now</p>
+                                </div>
                             </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Anna Sthesia</h6>
-                                <p class="mb-0">Just Now</p>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/02.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Paul Molive</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/03.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Anna Mull</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/04.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Paige Turner</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/04.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Bob Frapples</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/11.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Barb Ackue</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-online">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/12.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Greta Life</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-away">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/01.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Ira Membrit</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="iq-profile-avatar status-away">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/03.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Pete Sariya</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="iq-profile-avatar">
+                                    <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/02.jpg" alt="">
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Monty Carlo</h6>
+                                    <p class="mb-0">Admin</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/02.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Paul Molive</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
+                        <div class="d-none right-sidebar-toggle bg-primary text-white mt-3">
+                            <i class="ri-arrow-left-line side-left-icon"></i>
+                            <i class="ri-arrow-right-line side-right-icon"><span class="ms-3 d-inline-block">Close
+                                    Menu</span></i>
                         </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/03.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Anna Mull</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/04.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Paige Turner</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/04.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Bob Frapples</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/11.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Barb Ackue</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-online">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/12.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Greta Life</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-away">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/01.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Ira Membrit</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div class="iq-profile-avatar status-away">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/03.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Pete Sariya</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="iq-profile-avatar">
-                                <img class="rounded-circle avatar-50" src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/user/02.jpg" alt="">
-                            </div>
-                            <div class="ms-3">
-                                <h6 class="mb-0">Monty Carlo</h6>
-                                <p class="mb-0">Admin</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right-sidebar-toggle bg-primary text-white mt-3">
-                        <i class="ri-arrow-left-line side-left-icon"></i>
-                        <i class="ri-arrow-right-line side-right-icon"><span class="ms-3 d-inline-block">Close
-                                Menu</span></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="content-page" class="content-page">
+
+    <div 
+    style="padding-top:100px"
+    id="content-page" class="content-page">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 row m-0 p-0">
@@ -1806,6 +1855,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-sm-12 text-center">
                     <img src="https://templates.iqonic.design/lite/socialv/html/dist/assets/images/page-img/page-load-loader.gif" alt="loader" style="height: 100px;">
                 </div>
